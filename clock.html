@@ -19,7 +19,28 @@
     
     
     <script>
-    
+        
+        const sechand = document.querySelector(`.second-hand`);
+        const minhand = document.querySelector(`.minute-hand`);
+        const hourhand = document.querySelector(`.hour-hand`);
+        
+        function setDate(){
+            const date = new Date();
+            const second = date.getSeconds();
+            const minute = date.getMinutes();
+            const hour = date.getHours();
+            
+            const secondDegree = (second/60*360)+90;
+            const minuteDegree = (minute/60*360)+90;
+            const hourDegree = (hour/60*360)+90;
+            
+            sechand.style.transform = `rotate(${secondDegree}deg)`;
+            minhand.style.transform = `rotate(${minuteDegree}deg)`;
+            hourhand.style.transform = `rotate(${hourDegree}deg)`;
+        }
+        
+        setInterval(setDate, 1000);
+        
     </script>>
     
     
